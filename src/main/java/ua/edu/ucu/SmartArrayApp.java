@@ -1,9 +1,11 @@
 package ua.edu.ucu;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
+import ua.edu.ucu.smartarr.*;
 
 public class SmartArrayApp {
 
@@ -54,6 +56,27 @@ public class SmartArrayApp {
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
         //return Arrays.copyOf(result, result.length, String[].class);
-        return null;
+        SmartArray smartArray = new BaseArray(students);
+        MyPredicate pred = new MyPredicate() {
+            @Override
+            public boolean test(Object t) {
+                return ((Student) t).getGPA() >= 4 && ((Student) t).getYear() == 2;
+            }
+        };
+
+        MyComparator cmp = new MyComparator() {
+            @Override
+            public int compare(Object st1, Object st2) {
+                return ((Student) st1).getSurname().compareTo(((Student) st2).getSurname());
+            }
+        };
+        smartArray = new DistinctDecorator(new FilterDecorator(new SortDecorator(smartArray, cmp), pred));
+        String[] filtered = new String[smartArray.size()];
+        for (int i = 0; i < smartArray.size(); i++) {
+            filtered[i] = ((Student) smartArray.toArray()[i]).getSurname() + " "
+                    + ((Student) smartArray.toArray()[i]).getName();
+    }
+
+        return filtered;
     }
 }
