@@ -28,7 +28,7 @@ public class MapDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Applied function to all elements";
+        return "Applied function to all elements" + smartArray.operationDescription();
     }
 
     @Override
