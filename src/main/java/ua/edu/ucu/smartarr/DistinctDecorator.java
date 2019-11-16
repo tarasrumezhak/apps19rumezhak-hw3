@@ -8,7 +8,7 @@ public class DistinctDecorator extends SmartArrayDecorator {
         super(arr);
     }
 
-    public Object[] delRepeats(Object[] arr) {
+    private Object[] delRepeats(Object[] arr) {
         ArrayList<Object> result = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             for (int j = i+1; j < arr.length; j++) {

@@ -13,7 +13,7 @@ public class SortDecorator extends SmartArrayDecorator {
         comparator = compar;
     }
 
-    public Object[] sortByComparator(Object[] array, MyComparator compar) {
+    private Object[] sortByComparator(Object[] array, MyComparator compar) {
         ArrayList<Object> result = new ArrayList<>(Arrays.asList(array));
         result.sort(compar);
         return result.toArray();
