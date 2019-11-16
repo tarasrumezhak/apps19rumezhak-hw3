@@ -28,7 +28,7 @@ public class FilterDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return "Only satisfying elements left" + smartArray.operationDescription();
+        return "Only satisfying elements left " + smartArray.operationDescription();
     }
 
     @Override
