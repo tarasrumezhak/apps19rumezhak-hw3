@@ -7,7 +7,7 @@ import java.util.ArrayList;
 // Tests every element and removes it if it doesn't satisfy MyPredicate
 public class FilterDecorator extends SmartArrayDecorator {
     private MyPredicate predicat;
-    public FilterDecorator (SmartArray arr, MyPredicate pred) {
+    public FilterDecorator(SmartArray arr, MyPredicate pred) {
         super(arr);
         this.predicat = pred;
     }

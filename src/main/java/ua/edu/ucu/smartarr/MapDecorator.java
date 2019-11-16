@@ -5,12 +5,12 @@ import ua.edu.ucu.functions.MyFunction;
 import java.util.ArrayList;
 
 // Map every element to another object using MyFunction
-public class MapDecorator extends SmartArrayDecorator{
+public class MapDecorator extends SmartArrayDecorator {
     private MyFunction function;
 
-    public MapDecorator(SmartArray array, MyFunction function) {
+    public MapDecorator(SmartArray array, MyFunction func) {
         super(array);
-        this.function = function;
+        this.function = func;
     }
 
     private Object[] mapElements(Object[] array, MyFunction function) {
